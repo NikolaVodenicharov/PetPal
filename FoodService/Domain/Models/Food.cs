@@ -8,5 +8,7 @@
         public Flavor? Flavor { get; set; }
         public FoodCategory? FoodCategory { get; set; }
 
+        public Product? Product { get; set; }
+
     }
 }

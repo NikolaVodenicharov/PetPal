@@ -22,7 +22,7 @@
         public string? Title 
         { 
             get => this.title;
-            private set
+            set
             {
                 ProductValidations.NullOrEmptyValidation(value);
                 ProductValidations.MoreThanFourLettersValidation(value);
@@ -44,7 +44,7 @@
         public decimal SellPrice 
         { 
             get => this.sellPrice; 
-            private set
+            set
             {
                 ProductValidations.PositiveNumberValidation(value, nameof(SellPrice));
                 ProductValidations.UnderPriceFromSellPriceValidation(value, this.AvaragePurchasePricePerUnit);
@@ -57,7 +57,7 @@
         public decimal DiscountPercentage 
         { 
             get => this.discountPercentage;
-            private set
+            set
             {
                 ProductValidations.PositiveOrZeroNumberValidation(value, nameof(value));
                 ProductValidations.NegativeSellPriceFromDiscountValidation(value);
@@ -81,32 +81,13 @@
         public string? Description 
         { 
             get => this.description;
-            private set
+            set
             {
                 ProductValidations.NullOrEmptyValidation(value);
                 ProductValidations.MoreThanFourLettersValidation(value);
 
                 this.description = value;
             }
-        }
-
-
-            
-        public void ChangeSellPrice(decimal price) // or SetSellPrice ?
-        {
-            ProductValidations.PositiveNumberValidation(price, nameof(price));
-            ProductValidations.UnderPriceFromSellPriceValidation(price, this.AvaragePurchasePricePerUnit);
-
-            this.SellPrice = price;
-        }
-
-        public void ChageDiscountPercentage(decimal discountPercentage) // or SetDiscount?
-        {
-            ProductValidations.PositiveOrZeroNumberValidation(discountPercentage, nameof(discountPercentage));
-            ProductValidations.NegativeSellPriceFromDiscountValidation(discountPercentage);
-            ProductValidations.UnderPricedFromDiscountValidation(this.SellPrice, discountPercentage, this.AvaragePurchasePricePerUnit);
-
-            this.DiscountPercentage = discountPercentage;
         }
 
 
@@ -132,7 +113,7 @@
             decimal addedStockTotalPurchasePrice = amount * purchasePricePerUnit;
 
             decimal totalStockSpending = currentStockTotalPurchasePrice + addedStockTotalPurchasePrice;
-            int totalQuantity = this.Quantity + amount;
+            int totalQuantity = this.quantity + amount;
 
             this.AvaragePurchasePricePerUnit = totalStockSpending / totalQuantity;
         }
@@ -143,6 +124,8 @@
         {
             ProductValidations.PositiveNumberValidation(amount, nameof(amount));
             ProductValidations.ReduceUnderZeroValidation(this.Quantity, amount);
+
+            this.quantity -= amount;
         }
     }   
 }
