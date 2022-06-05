@@ -3,6 +3,6 @@
     public class FoodCategory
     {
         // dry, wet (canned), puppy
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

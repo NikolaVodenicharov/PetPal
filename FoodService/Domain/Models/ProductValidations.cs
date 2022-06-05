@@ -61,14 +61,21 @@
         {
             if (String.IsNullOrEmpty(text))
             {
-                throw new ArgumentException($"Cannot have empty text field.");
+                throw new ArgumentNullException($"Cannot have empty text field.");
             }
         }
         public static void MoreThanFourLettersValidation(string text)
         {
             if (text.Length < 4)
             {
-                throw new ArgumentException($"{text} is less than 4 letters.");
+                throw new ArgumentOutOfRangeException($"{text} is less than 4 letters.");
+            }
+        }
+        public static void MaximumLenghtValidation(string text, int maximumLength)
+        {
+            if (text.Length > maximumLength)
+            {
+                throw new ArgumentOutOfRangeException($"{text} is more than {maximumLength} letters.");
             }
         }
     }

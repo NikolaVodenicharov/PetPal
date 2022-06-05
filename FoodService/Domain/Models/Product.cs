@@ -2,6 +2,8 @@
 {
     public class Product
     {
+        public const int MaximumDescriptionLength = 1000;
+
         private string? title;
         private decimal avaragePurchasePricePerUnit;
         private decimal sellPrice;
@@ -54,6 +56,7 @@
         } 
  
         // it could be like 5 (5%), 22 (22%) and so on
+        // sell price after discount should not be lower than avarage purchase price. Or we are selling at loss
         public decimal DiscountPercentage 
         { 
             get => this.discountPercentage;
@@ -85,6 +88,7 @@
             {
                 ProductValidations.NullOrEmptyValidation(value);
                 ProductValidations.MoreThanFourLettersValidation(value);
+                ProductValidations.MaximumLenghtValidation(value, MaximumDescriptionLength);
 
                 this.description = value;
             }
