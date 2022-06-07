@@ -1,6 +1,6 @@
 # PetPal
 Creating pet shop using: 
-1) Microserfices architecture 
+1) Microservices architecture 
 2) DDD
 3) Repository pattern
 4) Blazor Wew Assembly
