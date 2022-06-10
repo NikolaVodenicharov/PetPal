@@ -9,13 +9,11 @@ namespace FoodService.Domain.Models
     /// </summary>
     public class Food : Product
     {
-        public Food(Collection<AnimalType> animals, Brand brand, PackageSize packageSize, Flavor flavour, FoodCategory foodCategory,
+        public Food(AnimalType animal, Brand brand, PackageSize packageSize, Flavor flavour, FoodCategory foodCategory,
                     string title, decimal purchasePrice, decimal sellPrice, int quantity, string description, decimal discountPercentage = 0) : 
             base(title, purchasePrice, sellPrice, quantity, description, discountPercentage)
         {
-            this.Animals = new List<AnimalType>(animals.Count);
-            this.Animals.AddRange(animals);
-
+            this.Animal = animal;
             this.Brand = brand;
             this.PackageSize = packageSize;
             this.Flavour = flavour;
@@ -23,7 +21,7 @@ namespace FoodService.Domain.Models
         }
 
         public int Id { get; private set; }
-        public List<AnimalType> Animals { get; private set; }
+        public AnimalType Animal { get; private set; }
         public Brand? Brand { get; private set; }
         public PackageSize? PackageSize { get; private set; }
         public Flavor Flavour { get; }
