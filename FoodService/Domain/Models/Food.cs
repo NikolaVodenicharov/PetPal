@@ -29,6 +29,5 @@ namespace FoodService.Domain.Models
         public Flavor Flavour { get; }
         public Flavor? Flavor { get; private set; }
         public FoodCategory? FoodCategory { get; private set; }
-        public Collection<AnimalType> Animals1 { get; }
     }
 }
