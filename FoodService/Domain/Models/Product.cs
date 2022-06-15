@@ -14,6 +14,8 @@
         private int quantity;
         private string? description;
 
+        protected Product() { }
+
         /// <param name="sellPrice">should be initialized after <paramref name="purchasePrice"/> because it is making validations based on it</param>
         /// <param name="discountPercentage">Could have default value of zeor if we dont want to have any initial discount. It should be initialized after <paramref name="purchasePrice"/> and <paramref name="sellPrice"/>, because it is making validations based on them</param>
         public Product(string title, decimal purchasePrice, decimal sellPrice, int quantity, string description, decimal discountPercentage = 0)

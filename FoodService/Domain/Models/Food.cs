@@ -9,6 +9,8 @@ namespace FoodService.Domain.Models
     /// </summary>
     public class Food : Product
     {
+        private Food() { }
+
         public Food(AnimalType animal, Brand brand, PackageSize packageSize, Flavor flavour, FoodCategory foodCategory,
                     string title, decimal purchasePrice, decimal sellPrice, int quantity, string description, decimal discountPercentage = 0) : 
             base(title, purchasePrice, sellPrice, quantity, description, discountPercentage)
@@ -16,15 +18,14 @@ namespace FoodService.Domain.Models
             this.Animal = animal;
             this.Brand = brand;
             this.PackageSize = packageSize;
-            this.Flavour = flavour;
+            this.Flavor = flavour;
             this.FoodCategory = foodCategory;
         }
 
         public int Id { get; private set; }
-        public AnimalType Animal { get; private set; }
+        public AnimalType? Animal { get; private set; }
         public Brand? Brand { get; private set; }
         public PackageSize? PackageSize { get; private set; }
-        public Flavor Flavour { get; }
         public Flavor? Flavor { get; private set; }
         public FoodCategory? FoodCategory { get; private set; }
     }
