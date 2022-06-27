@@ -9,6 +9,7 @@ namespace FoodService.Infrastructure
         public DbSet<Food> Foods {get; set;}
         public DbSet<Brand> Brands {get; set;}
 
+
         public FoodDatabase(DbContextOptions<FoodDatabase> options)
             : base(options)
         {
