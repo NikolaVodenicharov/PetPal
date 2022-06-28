@@ -1,4 +1,8 @@
+using FoodService.Application.Queries.FoodDetails;
+using FoodService.Application.Queries.FoodSummary;
+using FoodService.Domain.Repositories;
 using FoodService.Infrastructure;
+using FoodService.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +17,10 @@ builder.Services.AddSwaggerGen();
 //added by me
 builder.Services.AddDbContextPool<FoodDatabase>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("FoodServiceDatabaseConnection")));
+
+builder.Services.AddScoped<IFoodRepository, FoodRepository>();
+builder.Services.AddScoped<FoodSummaryAllHandler>();
+builder.Services.AddScoped<FoodDetailsHandler>();
 
 builder.Services.AddScoped<FoodDatabaseSeed>();
 
