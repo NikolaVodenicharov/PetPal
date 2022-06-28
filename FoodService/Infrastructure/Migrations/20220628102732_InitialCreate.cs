@@ -4,12 +4,12 @@
 
 namespace FoodService.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AnimalType",
+                name: "Animals",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -18,7 +18,7 @@ namespace FoodService.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AnimalType", x => x.Id);
+                    table.PrimaryKey("PK_Animals", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -35,7 +35,7 @@ namespace FoodService.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Flavor",
+                name: "Flavors",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -44,11 +44,11 @@ namespace FoodService.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Flavor", x => x.Id);
+                    table.PrimaryKey("PK_Flavors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "FoodCategory",
+                name: "FoodCategories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -57,11 +57,11 @@ namespace FoodService.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FoodCategory", x => x.Id);
+                    table.PrimaryKey("PK_FoodCategories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PackageSize",
+                name: "PackageSizes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -70,7 +70,7 @@ namespace FoodService.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PackageSize", x => x.Id);
+                    table.PrimaryKey("PK_PackageSizes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -95,9 +95,9 @@ namespace FoodService.Migrations
                 {
                     table.PrimaryKey("PK_Foods", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Foods_AnimalType_AnimalId",
+                        name: "FK_Foods_Animals_AnimalId",
                         column: x => x.AnimalId,
-                        principalTable: "AnimalType",
+                        principalTable: "Animals",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Foods_Brands_BrandId",
@@ -105,19 +105,19 @@ namespace FoodService.Migrations
                         principalTable: "Brands",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Foods_Flavor_FlavorId",
+                        name: "FK_Foods_Flavors_FlavorId",
                         column: x => x.FlavorId,
-                        principalTable: "Flavor",
+                        principalTable: "Flavors",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Foods_FoodCategory_FoodCategoryId",
+                        name: "FK_Foods_FoodCategories_FoodCategoryId",
                         column: x => x.FoodCategoryId,
-                        principalTable: "FoodCategory",
+                        principalTable: "FoodCategories",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Foods_PackageSize_PackageSizeId",
+                        name: "FK_Foods_PackageSizes_PackageSizeId",
                         column: x => x.PackageSizeId,
-                        principalTable: "PackageSize",
+                        principalTable: "PackageSizes",
                         principalColumn: "Id");
                 });
 
@@ -153,19 +153,19 @@ namespace FoodService.Migrations
                 name: "Foods");
 
             migrationBuilder.DropTable(
-                name: "AnimalType");
+                name: "Animals");
 
             migrationBuilder.DropTable(
                 name: "Brands");
 
             migrationBuilder.DropTable(
-                name: "Flavor");
+                name: "Flavors");
 
             migrationBuilder.DropTable(
-                name: "FoodCategory");
+                name: "FoodCategories");
 
             migrationBuilder.DropTable(
-                name: "PackageSize");
+                name: "PackageSizes");
         }
     }
 }

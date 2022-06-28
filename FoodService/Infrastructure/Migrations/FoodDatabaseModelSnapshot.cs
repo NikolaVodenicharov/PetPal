@@ -35,7 +35,7 @@ namespace FoodService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AnimalType");
+                    b.ToTable("Animals");
                 });
 
             modelBuilder.Entity("FoodService.Domain.Models.Brand", b =>
@@ -67,7 +67,7 @@ namespace FoodService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Flavor");
+                    b.ToTable("Flavors");
                 });
 
             modelBuilder.Entity("FoodService.Domain.Models.Food", b =>
@@ -139,7 +139,7 @@ namespace FoodService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FoodCategory");
+                    b.ToTable("FoodCategories");
                 });
 
             modelBuilder.Entity("FoodService.Domain.Models.PackageSize", b =>
@@ -155,7 +155,7 @@ namespace FoodService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PackageSize");
+                    b.ToTable("PackageSizes");
                 });
 
             modelBuilder.Entity("FoodService.Domain.Models.Food", b =>

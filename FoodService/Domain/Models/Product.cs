@@ -60,7 +60,7 @@
         
         /// <summary>
         /// <see cref="SellPrice"/> can be set at the beginning from te constroctur or later on.
-        /// But we have to be sure that is not only a positive number, but also that we are not selling for less money
+        /// We have to be sure that is a positive number and that we are not selling for less money
         /// that we purhaced the product. With other words - to not sell at loss.
         /// </summary>
         public decimal SellPrice 

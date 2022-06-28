@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContextPool<FoodDatabase>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("FoodServiceDatabaseConnection")));
 
+builder.Services.AddScoped<FoodDatabaseSeed>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,6 +23,8 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
+/*    SeedData();*/
 }
 
 app.UseHttpsRedirection();
@@ -30,3 +34,12 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+/*void SeedData()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var foodDataabseSeed = scope.ServiceProvider.GetService<FoodDatabaseSeed>();
+        foodDataabseSeed.GenerateFoods();
+    }
+}*/

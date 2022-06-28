@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FoodService.Migrations
 {
     [DbContext(typeof(FoodDatabase))]
-    [Migration("20220615133518_Initial")]
-    partial class Initial
+    [Migration("20220628102732_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,7 @@ namespace FoodService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AnimalType");
+                    b.ToTable("Animals");
                 });
 
             modelBuilder.Entity("FoodService.Domain.Models.Brand", b =>
@@ -69,7 +69,7 @@ namespace FoodService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Flavor");
+                    b.ToTable("Flavors");
                 });
 
             modelBuilder.Entity("FoodService.Domain.Models.Food", b =>
@@ -141,7 +141,7 @@ namespace FoodService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FoodCategory");
+                    b.ToTable("FoodCategories");
                 });
 
             modelBuilder.Entity("FoodService.Domain.Models.PackageSize", b =>
@@ -157,7 +157,7 @@ namespace FoodService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PackageSize");
+                    b.ToTable("PackageSizes");
                 });
 
             modelBuilder.Entity("FoodService.Domain.Models.Food", b =>
