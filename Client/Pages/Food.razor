@@ -1,0 +1,28 @@
+﻿@using Services.FoodService
+@using global::Shared.Models
+
+@page "/food"
+
+@if(foods == null)
+{
+    <h3>Loading foods</h3>
+}
+else
+{
+    foreach(var food in foods)
+    {
+        <h3>@food.Title - $@food.SellPrice</h3>
+    }
+}
+
+
+@code {
+    [Inject]
+    IFoodService FoodService { get; set; }
+    IEnumerable<FoodSummaryDto> foods { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        foods = await FoodService.All();
+    }
+}

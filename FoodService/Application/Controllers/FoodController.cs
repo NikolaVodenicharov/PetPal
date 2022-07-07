@@ -2,6 +2,7 @@
 using FoodService.Application.Queries.FoodSummary;
 using FoodService.Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Models;
 using System.Net;
 
 namespace FoodService.Application.Controllers
@@ -21,7 +22,7 @@ namespace FoodService.Application.Controllers
 
         [HttpGet]
         [Route("all")]
-        public async Task<IActionResult> All()
+        public async Task<ActionResult<IEnumerable<FoodSummaryDto>>> All()
         {
             var result = await this.foodSummaryHandler.Handle();
 
@@ -30,7 +31,13 @@ namespace FoodService.Application.Controllers
                 return NotFound();
             }
 
-            return Ok(result);
+            var dtos = new List<FoodSummaryDto>(result.Count());
+            foreach (var item in result)
+            {
+                dtos.Add(new FoodSummaryDto(item.Id, item.Title, item.SellPrice));
+            }
+
+            return Ok(dtos);
         }
 
         [HttpGet]

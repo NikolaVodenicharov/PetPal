@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodService", "FoodService\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodService.Tests", "FoodService.Tests\FoodService.Tests.csproj", "{9FFDFA6C-7CD9-4808-B316-6A18350C98E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessoriesService", "AccessoriesService\AccessoriesService.csproj", "{87DC7555-4EAA-495D-A670-3D14BF90FFB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccessoriesService", "AccessoriesService\AccessoriesService.csproj", "{87DC7555-4EAA-495D-A670-3D14BF90FFB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{8ADFF4C0-1F42-4528-869B-15332ADA7521}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{87DC7555-4EAA-495D-A670-3D14BF90FFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87DC7555-4EAA-495D-A670-3D14BF90FFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87DC7555-4EAA-495D-A670-3D14BF90FFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ADFF4C0-1F42-4528-869B-15332ADA7521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ADFF4C0-1F42-4528-869B-15332ADA7521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ADFF4C0-1F42-4528-869B-15332ADA7521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ADFF4C0-1F42-4528-869B-15332ADA7521}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

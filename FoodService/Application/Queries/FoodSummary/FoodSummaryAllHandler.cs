@@ -13,7 +13,7 @@ namespace FoodService.Application.Queries.FoodSummary
             this.foodDatabase = foodDatabase;
         }
 
-        public async Task<ICollection<FoodSummaryQuery>> Handle()
+        public async Task<IEnumerable<FoodSummaryQuery>> Handle()
         {
             return await this.foodDatabase
                 .Foods
