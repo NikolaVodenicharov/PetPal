@@ -42,7 +42,7 @@ namespace FoodService.Application.Controllers
 
         [HttpGet]
         [Route("{id:int}")]
-        public async Task<IActionResult> ById (int id)
+        public async Task<ActionResult<FoodDetailsDto>> Get (int id)
         {
             var result = await this.foodDetailsHandler.Handle(id);
 
@@ -51,7 +51,9 @@ namespace FoodService.Application.Controllers
                 return NotFound();
             }
 
-            return Ok(result);
+            var details = new FoodDetailsDto(result.Id, result.Title, result.SellPrice, result.Description);
+
+            return Ok(details);
         }
     }
 }

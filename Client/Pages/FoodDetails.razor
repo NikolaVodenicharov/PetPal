@@ -1,0 +1,38 @@
+﻿@using Services.FoodService
+@using global::Shared.Models
+
+@page "/FoodDetails/{Id:int}"
+
+<h3 class="mb-5">Food details</h3>
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <img />
+    </div>
+    <div class="col-md-6">
+        <h3>@Food.Title</h3>
+        <p class="mb-4">@Food.Description</p>
+        <p class="mb-4">
+            <b>@Food.SellPrice.ToString("C")</b>
+        </p>
+        <div>
+            <button class="btn btn-success"><b>Add to cart</b></button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    [Inject]
+    public IFoodService Service { get; set; }
+
+    public FoodDetailsDto Food { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Food = await Service.Get(Id);
+    }
+
+}

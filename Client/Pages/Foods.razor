@@ -1,0 +1,62 @@
+﻿@using Services.FoodService
+@using global::Shared.Models
+
+@page "/Foods"
+<h3>Foods</h3>
+
+@if(foods == null || count == 0)
+{
+    <h3>Loading foods</h3>
+}
+else
+{
+    var itemsPerRow = 3;
+    var rows = Math.Ceiling(count / (decimal)itemsPerRow);
+
+    for (var row = 1; row < rows; row++)
+    {
+        <div class="row mt-3">
+            @for (var column = 1; column <= itemsPerRow; column++)
+            {
+                var position = (row - 1) * itemsPerRow + column - 1;
+
+                if(position >= count)
+                {
+                    break;
+                }
+
+                var food = foods[position];
+
+                <div class="col-md-3 mb-2">
+                    <a href="/FoodDetails/@food.Id">
+                        <div class="card">
+                            <img>
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">
+                                    @food.Title
+                                </h5>
+                                <p>
+                                    <b>@food.SellPrice.ToString("C")&nbsp;</b>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+}
+
+
+@code {
+    [Inject]
+    IFoodService FoodService { get; set; }
+    IList<FoodSummaryDto> foods { get; set; }
+    int count = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        foods = await FoodService.All();
+        count = foods.Count();
+    }
+}

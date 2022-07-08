@@ -16,8 +16,9 @@ namespace FoodService.Application.Queries.FoodDetails
         {
             return await this.foodDatabase
                 .Foods
+                .Where(f => f.Id == id)
                 .Select(f => new FoodDetailsQuery(f.Id, f.Title, f.SellPrice, f.Description))
-                .FirstOrDefaultAsync(f => f.Id == id);
+                .FirstOrDefaultAsync();
         }
     }
 }

@@ -4,6 +4,8 @@ namespace Client.Services.FoodService
 {
     public interface IFoodService
     {
-        Task<IEnumerable<FoodSummaryDto>> All();
+        Task<IList<FoodSummaryDto>> All();
+
+        Task<FoodDetailsDto> Get(int id);
     }
 }
